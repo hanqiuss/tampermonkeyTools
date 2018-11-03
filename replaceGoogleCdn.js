@@ -30,7 +30,6 @@
                         oScript.src   = url.replace(map[i][0],map[i][1])
                         oScript.async = false
                         console.log(el.src);
-                        //el.remove()
                         el.parentNode.replaceChild(oScript, el)
                         break;
                     }
