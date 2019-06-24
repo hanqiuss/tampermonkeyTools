@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         百度搜索广告
-// @namespace    http://qiuhan.ren/tampermonkey/
+// @namespace    https://github.com/hanqiuss/tampermonkeyTools/
 
-// @updateURL    http://qiuhan.ren/tampermonkey/baidu_ad.js
-// @downloadURL  http://qiuhan.ren/tampermonkey/baidu_ad.js
+// @updateURL    https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/baidu_ad.js
+// @downloadURL  https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/baidu_ad.js
 // @version      0.24
 // @run-at       document-idle
 // @description  去除百度搜索页广告
