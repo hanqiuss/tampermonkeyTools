@@ -1,5 +1,5 @@
 // ==UserScript==
-// @name         bing default cn
+// @name         必应翻译默认语言改为中文
 // @namespace    http://tampermonkey.net/
 // @version      0.1
 // @description  try to take over the world!
