@@ -2,8 +2,8 @@
 // @name         csdn自动展开
 // @namespace    https://github.com/hanqiuss/tampermonkeyTools/
 // @icon         https://csdnimg.cn/public/favicon.ico
-// @updateURL    https://github.com/hanqiuss/tampermonkeyTools/csdn_expand.js
-// @downloadURL  https://github.com/hanqiuss/tampermonkeyTools/csdn_expand.js
+// @updateURL    https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
+// @downloadURL  https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
 // @author       You
 // @match        https://blog.csdn.net/*
 // @grant        none
