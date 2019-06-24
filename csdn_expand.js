@@ -14,6 +14,6 @@
     var a = document.getElementById('article_content')
     if(a){a.style=''}
     a = document.getElementsByClassName('hide-article-box')
-    a.map(x=>x.remove())
+    a[0].remove()
     // Your code here...
 })();
