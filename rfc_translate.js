@@ -48,7 +48,7 @@
                         x.parentNode.replaceChild(r,x)
                     }
                 })
-                a.style = document.getElementsByClassName('content')[0].style.clone()
+                a.style = document.getElementsByClassName('content')[0].style.cssText
             }
         }
         reader.readAsText(f)
