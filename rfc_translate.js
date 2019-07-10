@@ -5,7 +5,7 @@
 // @icon         https://tools.ietf.org//images/rfc.png
 // @updateURL    https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/rfc_translate.js
 // @downloadURL  https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/rfc_translate.js
-// @version      0.02
+// @version      0.03
 // @author       ...
 // @match        https://tools.ietf.org/html/*
 // @require      https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js
@@ -33,25 +33,17 @@
         var reader = new FileReader();
         reader.onload = x=>{
             if(x.target.result){
-                //document.getElementsByClassName('content')[1].outerHTML = x.target.result
-                var  a = document.getElementsByClassName('content')[1]
-                a.outerHTML = x.target.result
-                a = document.getElementsByClassName('content')[1]
-                a.style.width = document.getElementsByClassName('content')[0].style.width
-
-                Array.from(a.children).map(x=>{
-                    if(x.tagName == 'PRE'){
-                        var r = document.createElement('TEXTAREA')
-                        r.value = x.innerHTML
-                        r.style.height = (parseInt(x.style.height)-8)+'px'
-                        r.style.width = '565px'
-                        x.parentNode.replaceChild(r,x)
-                    }
-                })
-                a.style = document.getElementsByClassName('content')[0].style.cssText
+                loadString(x.target.result)
             }
         }
         reader.readAsText(f)
+    })
+    $('#load2').on('click',function(){
+        $.ajax('https://raw.githubusercontent.com/hanqiuss/rfc-translate/master' + window.location.pathname,
+               {
+            success:function(ret){
+                loadString(ret)
+            }})
     })
     $('#save').on('click',function(){
         var a = document.getElementsByClassName('content')[1].cloneNode(true)
@@ -76,7 +68,23 @@
         downloadAnchorNode.click();
         downloadAnchorNode.remove();
     })
+    function loadString(s){
+        var  a = document.getElementsByClassName('content')[1]
+        a.outerHTML = s
+        a = document.getElementsByClassName('content')[1]
+        a.style.width = document.getElementsByClassName('content')[0].style.width
 
+        Array.from(a.children).map(x=>{
+            if(x.tagName == 'PRE'){
+                var r = document.createElement('TEXTAREA')
+                r.value = x.innerHTML
+                r.style.height = (parseInt(x.style.height)-8)+'px'
+                r.style.width = '567px'
+                x.parentNode.replaceChild(r,x)
+            }
+        })
+        a.style = document.getElementsByClassName('content')[0].style.cssText
+    }
     function preToTextarea(){
         $.each($('.content:last pre'),(i,v)=>{
         var s = v.innerText.split("\n\n");
@@ -94,7 +102,7 @@
         //v.textContent = s.join('\n \n')
         var a = $('<textarea>'+s.join('\n \n').trimRight()+'</textarea>')
         a.css('height',(parseInt(v.style.height)-8).toString() + 'px')
-        a.css('width', '580px')
+        a.css('width', '567px')
         console.log()
         v.parentNode.replaceChild(a[0],v)
     })
