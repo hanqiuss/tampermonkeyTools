@@ -44,7 +44,7 @@
                         var r = document.createElement('TEXTAREA')
                         r.value = x.innerHTML
                         r.style.height = (parseInt(x.style.height)-8)+'px'
-                        r.style.width = '580px'
+                        r.style.width = '565px'
                         x.parentNode.replaceChild(r,x)
                     }
                 })
