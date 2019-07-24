@@ -4,7 +4,7 @@
 // @icon         https://csdnimg.cn/public/favicon.ico
 // @updateURL    https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
 // @downloadURL  https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
-// @version      0.02
+// @version      0.03
 // @run-at       document-idle
 // @author       You
 // @match        https://blog.csdn.net/*
@@ -21,6 +21,11 @@
             if(a){a.style=''}
             a = document.getElementsByClassName('hide-article-box')
             a[0].remove()
+            //展开评论
+            a = document.getElementsByClassName('comment-list-box')
+            if(a){a[0].style=''}
+            a = document.getElementById('btnMoreComment')
+            if(a){a.innerHTML = '<span> </span>'}
             break
         case 'bbs.csdn.net':
             a = document.getElementById('bbs_detail_wrap')
