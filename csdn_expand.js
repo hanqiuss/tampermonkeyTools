@@ -4,7 +4,7 @@
 // @icon         https://csdnimg.cn/public/favicon.ico
 // @updateURL    https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
 // @downloadURL  https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
-// @version      0.04
+// @version      0.05
 // @run-at       document-idle
 // @author       You
 // @match        https://blog.csdn.net/*
@@ -35,6 +35,11 @@
             if(a){a.innerHTML = '<span> </span>'}
             break
     }
-    
+    var interval = setInterval(function(){
+        if(document.getElementById('passportbox')){
+            document.getElementById('passportbox').style.display='';
+            document.getElementsByClassName('login-mark').item(0).style.display='';
+        }
+    },200);
     // Your code here...
 })();
