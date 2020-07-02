@@ -41,6 +41,9 @@
             document.getElementById('passportbox').style.display='';
             document.getElementsByClassName('login-mark').item(0).style.display='';
         }
+        if(document.getElementById('writeGuide')){
+            document.getElementById('writeGuide').style.display='';
+        }
     },200);
     // Your code here...
 })();
