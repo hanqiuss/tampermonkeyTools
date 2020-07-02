@@ -10,6 +10,7 @@
 // @match        https://blog.csdn.net/*
 // @match        https://*.blog.csdn.net/*
 // @match        https://bbs.csdn.net/*
+// @match        https://*.csdn.net/*
 // @grant        none
 // ==/UserScript==
 
