@@ -2,8 +2,8 @@
 // @name         github css
 // @namespace    http://tampermonkey.net/
 // @version      0.1
-// @updateURL    https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/github_css
-// @downloadURL  https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/github_css
+// @updateURL    https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/github_css.js
+// @downloadURL  https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/github_css.js
 // @description  try to take over the world!
 // @author       You
 // @match        https://github.com/*/*
