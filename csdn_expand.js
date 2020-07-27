@@ -4,7 +4,7 @@
 // @icon         https://csdnimg.cn/public/favicon.ico
 // @updateURL    https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
 // @downloadURL  https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
-// @version      0.06
+// @version      0.07
 // @run-at       document-idle
 // @author       You
 // @match        https://blog.csdn.net/*
@@ -22,17 +22,21 @@
             a = document.getElementById('bbs_detail_wrap')
             if(a){a.style=''}
             a = document.getElementsByClassName('hide_topic_box')
+            if(!a.length)break
             a[0].remove()
             break
         default :
             a = document.getElementById('article_content')
             if(a){a.style=''}
             a = document.getElementsByClassName('hide-article-box')
+            if(!a.length)break
             a[0].remove()
             //展开评论
             a = document.getElementsByClassName('comment-list-box')
+            if(!a.length)break
             if(a){a[0].style=''}
             a = document.getElementById('btnMoreComment')
+            if(!a.length)break
             if(a){a.innerHTML = '<span> </span>'}
             break
     }
