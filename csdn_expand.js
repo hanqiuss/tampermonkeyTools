@@ -4,26 +4,48 @@
 // @icon         https://csdnimg.cn/public/favicon.ico
 // @updateURL    https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
 // @downloadURL  https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
-// @version      0.07
+// @version      0.08
 // @run-at       document-idle
 // @author       You
 // @match        https://blog.csdn.net/*
 // @match        https://*.blog.csdn.net/*
 // @match        https://bbs.csdn.net/*
 // @match        https://*.csdn.net/*
+// @match        https://www.zhihu.com/*
 // @grant        none
 // ==/UserScript==
 
+function block_zhihu(){
+    let a = document.getElementsByClassName('Modal-wrapper')
+    if(a.length){
+        a[0].remove()
+        document.getElementsByTagName('html')[0].style.overflow='auto'
+    }
+}
+function block_csdn(){
+    if(document.getElementById('passportbox')){
+        document.getElementById('passportbox').style.display='';
+        document.getElementsByClassName('login-mark').item(0).style.display='';
+    }
+    if(document.getElementById('writeGuide')){
+        document.getElementById('writeGuide').style.display='';
+    }
+}
 (function() {
     'use strict';
     var a;
     switch(window.location.host){
+        case 'www.zhihu.com':
+            setInterval(block_zhihu,200);
+            break;
         case 'bbs.csdn.net':
             a = document.getElementById('bbs_detail_wrap')
             if(a){a.style=''}
             a = document.getElementsByClassName('hide_topic_box')
             if(!a.length)break
             a[0].remove()
+
+            setInterval(block_csdn,200)
             break
         default :
             a = document.getElementById('article_content')
@@ -38,16 +60,10 @@
             a = document.getElementById('btnMoreComment')
             if(!a.length)break
             if(a){a.innerHTML = '<span> </span>'}
+
+            setInterval(block_csdn,200)
             break
     }
-    var interval = setInterval(function(){
-        if(document.getElementById('passportbox')){
-            document.getElementById('passportbox').style.display='';
-            document.getElementsByClassName('login-mark').item(0).style.display='';
-        }
-        if(document.getElementById('writeGuide')){
-            document.getElementById('writeGuide').style.display='';
-        }
-    },200);
+
     // Your code here...
 })();
