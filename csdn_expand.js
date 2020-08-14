@@ -4,10 +4,9 @@
 // @icon         https://csdnimg.cn/public/favicon.ico
 // @updateURL    https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
 // @downloadURL  https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
-// @version      0.08
+// @version      0.09
 // @run-at       document-idle
 // @author       You
-// @match        https://blog.csdn.net/*
 // @match        https://*.blog.csdn.net/*
 // @match        https://bbs.csdn.net/*
 // @match        https://*.csdn.net/*
@@ -33,21 +32,25 @@ function block_csdn(){
 }
 (function() {
     'use strict';
+    console.log('000');
     var a;
     switch(window.location.host){
         case 'www.zhihu.com':
             setInterval(block_zhihu,200);
+            console.log('zhihu');
             break;
         case 'bbs.csdn.net':
+            console.log('bbs.csdn');
+            setInterval(block_csdn,200)
             a = document.getElementById('bbs_detail_wrap')
             if(a){a.style=''}
             a = document.getElementsByClassName('hide_topic_box')
             if(!a.length)break
             a[0].remove()
-
-            setInterval(block_csdn,200)
             break
         default :
+            console.log('blog');
+            setInterval(block_csdn,200)
             a = document.getElementById('article_content')
             if(a){a.style=''}
             a = document.getElementsByClassName('hide-article-box')
@@ -61,9 +64,7 @@ function block_csdn(){
             if(!a.length)break
             if(a){a.innerHTML = '<span> </span>'}
 
-            setInterval(block_csdn,200)
             break
     }
 
-    // Your code here...
 })();
