@@ -4,7 +4,7 @@
 
 // @updateURL    https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/baidu_ad.js
 // @downloadURL  https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/baidu_ad.js
-// @version      0.24
+// @version      0.25
 // @run-at       document-idle
 // @description  去除百度搜索页广告
 // @author       ...
@@ -27,10 +27,7 @@
         if (e.style.display == 'none') {
             return false;
         }
-        if (e.className.trim().length == 6 || e.style.display){
-            return true;
-        }
-        if (e.lastChild.lastChild && e.lastChild.lastChild.innerHTML == '广告'){
+        if(e.getElementsByClassName('c-gap-left').length >0 ){
             return true;
         }
         return false;
