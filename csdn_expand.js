@@ -4,13 +4,13 @@
 // @icon         https://csdnimg.cn/public/favicon.ico
 // @updateURL    https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
 // @downloadURL  https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
-// @version      0.09
+// @version      0.10
 // @run-at       document-idle
 // @author       You
 // @match        https://*.blog.csdn.net/*
 // @match        https://bbs.csdn.net/*
 // @match        https://*.csdn.net/*
-// @match        https://www.zhihu.com/*
+// @match        https://*.zhihu.com/*
 // @grant        none
 // ==/UserScript==
 
@@ -36,6 +36,7 @@ function block_csdn(){
     var a;
     switch(window.location.host){
         case 'www.zhihu.com':
+        case 'zhuanlan.zhihu.com':
             setInterval(block_zhihu,200);
             console.log('zhihu');
             break;
