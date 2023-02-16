@@ -3,8 +3,8 @@
 // @description  csdn自动展开、自动关闭登录页面、去除代码复制限制、知乎自动关闭登录页面
 // @namespace    https://github.com/hanqiuss/tampermonkeyTools/
 // @icon         https://csdnimg.cn/public/favicon.ico
-// @updateURL    https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
-// @downloadURL  https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
+// @updateURL    https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
+// @downloadURL  https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
 // @version      0.12
 // @run-at       document-idle
 // @author       You
