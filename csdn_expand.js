@@ -3,9 +3,9 @@
 // @description  csdn自动展开、自动关闭登录页面、去除代码复制限制、知乎自动关闭登录页面
 // @namespace    https://github.com/hanqiuss/tampermonkeyTools/
 // @icon         https://csdnimg.cn/public/favicon.ico
-// @updateURL    https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
-// @downloadURL  https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
-// @version      0.11
+// @updateURL    https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
+// @downloadURL  https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
+// @version      0.12
 // @run-at       document-idle
 // @author       You
 // @match        https://*.blog.csdn.net/*
@@ -35,7 +35,7 @@ function block_csdn(){
     }
 
     if(document.getElementsByClassName('hide-preCode-box').length){
-        document.getElementsByClassName('hide-preCode-box').item(0).parentElement.removeAttribute('class')
+        document.getElementsByClassName('hide-preCode-box').item(0).parentElement.classList.remove('set-code-hide')
         document.getElementsByClassName('hide-preCode-box').item(0).remove();
     }
     Array.from(document.getElementsByClassName('hljs-button')).map(x=>x.remove())
