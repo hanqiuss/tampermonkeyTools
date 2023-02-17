@@ -3,8 +3,8 @@
 // @description  主要用来编辑rfc翻译档
 // @namespace    http://qiuhan.ren/tampermonkey/
 // @icon         https://tools.ietf.org//images/rfc.png
-// @updateURL    https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/rfc_translate.js
-// @downloadURL  https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/rfc_translate.js
+// @updateURL    https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/rfc_translate.js
+// @downloadURL  https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/rfc_translate.js
 // @version      0.03
 // @author       ...
 // @match        https://tools.ietf.org/html/*
