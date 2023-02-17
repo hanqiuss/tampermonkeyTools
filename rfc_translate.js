@@ -8,6 +8,7 @@
 // @version      0.03
 // @author       ...
 // @match        https://tools.ietf.org/html/*
+// @match        https://www.rfc-editor.org/rfc/*
 // @require      https://cdn.bootcss.com/jquery/3.3.1/jquery.min.js
 // @run-at       document-idle
 // ==/UserScript==
@@ -39,7 +40,7 @@
         reader.readAsText(f)
     })
     $('#load2').on('click',function(){
-        $.ajax('https://raw.githubusercontent.com/hanqiuss/rfc-translate/master' + window.location.pathname,
+        $.ajax('https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/rfc-translate/master' + window.location.pathname,
                {
             success:function(ret){
                 loadString(ret)
