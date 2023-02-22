@@ -5,7 +5,7 @@
 // @icon         https://tools.ietf.org//images/rfc.png
 // @updateURL    https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/rfc_translate.js
 // @downloadURL  https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/rfc_translate.js
-// @version      0.03
+// @version      0.04
 // @author       ...
 // @match        https://tools.ietf.org/html/*
 // @match        https://www.rfc-editor.org/rfc/*
@@ -15,7 +15,15 @@
 
 (function() {
     'use strict';
-    document.body.append(document.getElementsByClassName('content')[0].cloneNode(true))
+    var d1 = document.createElement('div')
+    d1.className = 'content'
+
+    d1.innerHTML = document.body.innerHTML
+    var d2 = d1.cloneNode(true)
+    document.body.innerHTML = ''
+    document.body.append(d1)
+    document.body.append(d2)
+
     $('.content').css('float','left').css('margin','0 2em').css('width','97ex')
     $('.content:last pre .grey').remove()
     $('.content:last pre:first').css('height','780px')
