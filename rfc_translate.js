@@ -95,7 +95,7 @@
             if(x.tagName == 'PRE'){
                 var r = document.createElement('TEXTAREA')
                 r.value = x.innerHTML
-                r.style.height = (Number(x.style.height.slice(0,-2))-7.3333)+'px'
+                r.style.height = (Number(x.style.height.slice(0,-2))-8)+'px'
                 r.style.width = '567px'
                 x.parentNode.replaceChild(r,x)
             }
@@ -118,7 +118,7 @@
         })
         //v.textContent = s.join('\n \n')
         var a = $('<textarea>'+s.join('\n \n').trimRight()+'</textarea>')
-        a.css('height',(v.getBoundingClientRect().height - 7.33333 ).toString() + 'px')
+        a.css('height',(v.getBoundingClientRect().height - 8 ).toString() + 'px')
         a.css('width', '567px')
         //console.log(v.offsetHeight)
         v.parentNode.replaceChild(a[0],v)
