@@ -67,7 +67,7 @@
             if(x.tagName == 'TEXTAREA'){
                 var r = document.createElement('pre')
                 r.innerHTML = x.value
-                r.style.height = (Number(x.style.height.slice(0,-2))+7.3333) + 'px'
+                r.style.height = (Number(x.style.height.slice(0,-2))+8) + 'px'
                 r.style['white-space'] = 'pre-wrap'
                 r.style['font-size'] = '14px'
                 r.style['font-family'] = "fangsong"
