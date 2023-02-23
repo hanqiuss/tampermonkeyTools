@@ -2,10 +2,10 @@
 // @name         rfc翻译
 // @description  主要用来编辑rfc翻译档
 // @namespace    http://qiuhan.ren/tampermonkey/
-// @icon         https://tools.ietf.org//images/rfc.png
+// @icon         https://www.rfc-editor.org/wp-content/uploads/favicon-1.ico
 // @updateURL    https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/rfc_translate.js
 // @downloadURL  https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/rfc_translate.js
-// @version      0.04
+// @version      0.05
 // @author       ...
 // @match        https://tools.ietf.org/html/*
 // @match        https://www.rfc-editor.org/rfc/*
@@ -23,11 +23,15 @@
     document.body.innerHTML = ''
     document.body.append(d1)
     document.body.append(d2)
+    var style = document.createElement('style')
+    style.textContent = `textarea {font-size:14px;font-family:"fangsong";margin:0}`;
+    style.setAttribute('type','text/css')
+    document.head.append(style)
 
     $('.content').css('float','left').css('margin','0 2em').css('width','97ex')
-    $('.content:last pre .grey').remove()
-    $('.content:last pre:first').css('height','780px')
-    $('.content:last .newpage').css('height','840px')
+    $('.content:last pre .grey').text(' ')
+    //$('.content:last pre:first').css('height','780px')
+    //$('.content:last .newpage').css('height','840px')
     $('.content:last pre').css('white-space','pre-wrap')
     preToTextarea()
 
@@ -57,22 +61,26 @@
     $('#save').on('click',function(){
         var a = document.getElementsByClassName('content')[1].cloneNode(true)
         a.style.width = '579px'
-        a.style['font-size'] = '10pt'
+        a.style['font-size'] = '14px'
         a.style.margin = '0 30%'
         Array.from(a.children).map(x=>{
             if(x.tagName == 'TEXTAREA'){
                 var r = document.createElement('pre')
                 r.innerHTML = x.value
-                r.style.height = (parseInt(x.style.height)+8) + 'px'
+                r.style.height = (Number(x.style.height.slice(0,-2))+7.3333) + 'px'
                 r.style['white-space'] = 'pre-wrap'
+                r.style['font-size'] = '14px'
+                r.style['font-family'] = "fangsong"
+                console.log(r.style)
                 a.replaceChild(r,x)
             }
         })
-        var dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(a.outerHTML);
+
+        var dataStr = "data:text/html;charset=utf-8," + encodeURIComponent(a.outerHTML);
         var downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href", dataStr);
         downloadAnchorNode.setAttribute("target", 'tab');
-        downloadAnchorNode.setAttribute("download", document.location.pathname.replace('/html/','') + ".html");
+        downloadAnchorNode.setAttribute("download", document.location.pathname.replace(/(\/html\/)|(\/rfc\/)/,'') + ".html");
         document.body.appendChild(downloadAnchorNode); // required for firefox
         downloadAnchorNode.click();
         downloadAnchorNode.remove();
@@ -87,7 +95,7 @@
             if(x.tagName == 'PRE'){
                 var r = document.createElement('TEXTAREA')
                 r.value = x.innerHTML
-                r.style.height = (parseInt(x.style.height)-8)+'px'
+                r.style.height = (Number(x.style.height.slice(0,-2))-7.3333)+'px'
                 r.style.width = '567px'
                 x.parentNode.replaceChild(r,x)
             }
@@ -104,15 +112,15 @@
 
             if(x[0]==' '){
                 x = x.split('\n').map(x=>x.replace(/ /g,'').length>=45 ? x : x+'\n').join('')
-                console.log(x)
+                //console.log(x)
             }
             return x.trimRight()
         })
         //v.textContent = s.join('\n \n')
         var a = $('<textarea>'+s.join('\n \n').trimRight()+'</textarea>')
-        a.css('height',(parseInt(v.style.height)-8).toString() + 'px')
+        a.css('height',(v.getBoundingClientRect().height - 7.33333 ).toString() + 'px')
         a.css('width', '567px')
-        console.log()
+        //console.log(v.offsetHeight)
         v.parentNode.replaceChild(a[0],v)
     })
     }
