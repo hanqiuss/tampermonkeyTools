@@ -24,7 +24,7 @@
     document.body.append(d1)
     document.body.append(d2)
     var style = document.createElement('style')
-    style.textContent = `textarea {font-size:14px;font-family:"fangsong";margin:0}`;
+    style.textContent = `textarea {font-size:14px;font-family:宋体;margin:0}`;
     style.setAttribute('type','text/css')
     document.head.append(style)
 
@@ -70,7 +70,7 @@
                 r.style.height = (Number(x.style.height.slice(0,-2))+8) + 'px'
                 r.style['white-space'] = 'pre-wrap'
                 r.style['font-size'] = '14px'
-                r.style['font-family'] = "fangsong"
+                r.style['font-family'] = "宋体"
                 console.log(r.style)
                 a.replaceChild(r,x)
             }
