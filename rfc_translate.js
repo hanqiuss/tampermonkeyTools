@@ -71,7 +71,7 @@
                 r.style['white-space'] = 'pre-wrap'
                 r.style['font-size'] = '14px'
                 r.style['font-family'] = "宋体"
-                console.log(r.style)
+                //console.log(r.style)
                 a.replaceChild(r,x)
             }
         })
@@ -80,7 +80,7 @@
         var downloadAnchorNode = document.createElement('a');
         downloadAnchorNode.setAttribute("href", dataStr);
         downloadAnchorNode.setAttribute("target", 'tab');
-        downloadAnchorNode.setAttribute("download", document.location.pathname.replace(/(\/html\/)|(\/rfc\/)/,'') + ".html");
+        downloadAnchorNode.setAttribute("download", document.location.pathname.replace(/(\/html\/)|(\/rfc\/)|(\.html)|(\.txt)/g,'') + ".html");
         document.body.appendChild(downloadAnchorNode); // required for firefox
         downloadAnchorNode.click();
         downloadAnchorNode.remove();
