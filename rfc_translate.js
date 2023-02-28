@@ -52,7 +52,7 @@
         reader.readAsText(f)
     })
     $('#load2').on('click',function(){
-        $.ajax('https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/rfc-translate/master' + window.location.pathname,
+        $.ajax('https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/rfc-translate/master/html/' + document.location.pathname.replace(/(\/html\/)|(\/rfc\/)|(\.html)|(\.txt)/g,''),
                {
             success:function(ret){
                 loadString(ret)
