@@ -5,7 +5,7 @@
 // @icon         https://csdnimg.cn/public/favicon.ico
 // @updateURL    https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
 // @downloadURL  https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
-// @version      0.12
+// @version      0.13
 // @run-at       document-idle
 // @author       You
 // @match        https://*.blog.csdn.net/*
@@ -55,6 +55,9 @@ function csdn_css(){
         -moz-user-select: auto;
         -ms-user-select: auto;
         user-select: auto;
+    }
+    main div.blog-content-box pre {
+        max-height:max-content;
     }
     `;
     document.getElementsByTagName('head')[0].appendChild(node);
