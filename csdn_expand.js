@@ -5,7 +5,7 @@
 // @icon         https://csdnimg.cn/public/favicon.ico
 // @updateURL    https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
 // @downloadURL  https://ghproxy.com/https://raw.githubusercontent.com/hanqiuss/tampermonkeyTools/master/csdn_expand.js
-// @version      0.13
+// @version      0.14
 // @run-at       document-idle
 // @author       You
 // @match        https://*.blog.csdn.net/*
@@ -43,6 +43,7 @@ function block_csdn(){
         csdn_css();
         csdn_css_is_in = true;
     }
+    document.querySelectorAll('pre').values().toArray().map(x=>x.style.height='auto')
 }
 function csdn_css(){
     let node = document.createElement ('style');
